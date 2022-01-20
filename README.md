@@ -10,3 +10,10 @@ Le istruzioni di seguito sono per far funzionare il progetto sul server della sc
 1. Eseguire la stessa operazione del punto precedente anche con il file `public/.htaccess`
 1. Se tutto è andato a buon fine, dovreste vedere il vostro sito live accedendo direttamente alla cartella del progetto sul server della scuola
 1. Creare rotte, controllers, viste e modelli in base alle esigenze
+
+### Connessione al database
+Rispetto al progetto originale, che usava PDO, qui usiamo mysqli per connetterci al database locale.
+
+Per impostare i parametri di configurazione per la connessione al db, rinominare `App/Config.php.rename` in `App/Config.php` e modificare le variabili al suo interno.
+
+Per fare delle prove, è presente un file `create_users.sql` per creare una tabella di esempio.

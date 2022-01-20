@@ -35,6 +35,7 @@ $router->add('{id:\d+}', ['controller' => 'Home', 'action' => 'indexWithId']);
 
 // Route with model
 $router->add('users', ['controller' => 'Home', 'action' => 'users']);
+$router->add('users/{id:\d+}', ['controller' => 'Home', 'action' => 'usersWithId']);
 
 $router->add('{controller}/{action}');
     

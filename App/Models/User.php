@@ -23,4 +23,11 @@ class User extends \Core\Model
         $stmt = $db->query('SELECT user_id, name FROM users');
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public static function getUser($id)
+    {
+        $db = static::getDB();
+        $stmt = $db->query('SELECT user_id, name FROM users WHERE user_id='.$id);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

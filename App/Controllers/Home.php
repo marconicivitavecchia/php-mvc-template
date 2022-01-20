@@ -34,4 +34,10 @@ class Home extends \Core\Controller
         View::renderTemplate('Home/users.html',['users' => $users]);
     }
 
+    public function usersWithIdAction() {
+        $id = $this->route_params["id"];
+        $users = User::getUser($id);
+        View::renderTemplate('Home/users.html',['users' => $users]);
+    }
+
 }

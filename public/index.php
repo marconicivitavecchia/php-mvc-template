@@ -26,7 +26,13 @@ set_exception_handler('Core\Error::exceptionHandler');
 $router = new Core\Router();
 
 // Add the routes
+
+// Base route
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
+
+// Route with parameter
+$router->add('{id:\d+}', ['controller' => 'Home', 'action' => 'indexWithId']);
+
 $router->add('{controller}/{action}');
     
 $router->dispatch($_SERVER['QUERY_STRING']);

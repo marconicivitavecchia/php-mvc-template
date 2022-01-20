@@ -21,4 +21,11 @@ class Home extends \Core\Controller
     {
         View::renderTemplate('Home/index.html');
     }
+
+    public function indexWithIdAction()
+    {
+        $id = $this->route_params["id"];
+        View::renderTemplate('Home/index_id.html',['id' => $id]);
+    }
+
 }

@@ -36,9 +36,12 @@ $router->add('{id:\d+}', ['controller' => 'Home', 'action' => 'indexWithId']);
 // Route with model
 $router->add('users', ['controller' => 'Home', 'action' => 'users']);
 $router->add('users/{id:\d+}', ['controller' => 'Home', 'action' => 'usersWithId']);
-// Return JSON format
+// JSON format
 $router->add('users.json', ['controller' => 'Home', 'action' => 'usersJson']);
 $router->add('users/{id:\d+}.json', ['controller' => 'Home', 'action' => 'usersWithIdJson']);
+
+// Compose page client-side with JavaScript
+$router->add('users2', ['controller' => 'Home', 'action' => 'usersJs']);
 
 $router->add('{controller}/{action}');
     

@@ -50,4 +50,8 @@ class Home extends \Core\Controller
         echo json_encode($users);
     }
 
+    public function usersJs() {
+        View::renderTemplate('Home/users_js.html');
+    }
+
 }

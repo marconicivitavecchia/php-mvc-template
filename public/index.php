@@ -33,6 +33,9 @@ $router->add('', ['controller' => 'Home', 'action' => 'index']);
 // Route with parameter
 $router->add('{id:\d+}', ['controller' => 'Home', 'action' => 'indexWithId']);
 
+// Route with model
+$router->add('users', ['controller' => 'Home', 'action' => 'users']);
+
 $router->add('{controller}/{action}');
     
 $router->dispatch($_SERVER['QUERY_STRING']);

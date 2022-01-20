@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use \Core\View;
+use \App\Models\User;
 
 /**
  * Home controller
@@ -26,6 +27,11 @@ class Home extends \Core\Controller
     {
         $id = $this->route_params["id"];
         View::renderTemplate('Home/index_id.html',['id' => $id]);
+    }
+
+    public function usersAction() {
+        $users = User::getAll();
+        View::renderTemplate('Home/users.html',['users' => $users]);
     }
 
 }

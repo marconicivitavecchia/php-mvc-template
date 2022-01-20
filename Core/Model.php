@@ -2,7 +2,7 @@
 
 namespace Core;
 
-use PDO;
+use Mysqli;
 use App\Config;
 
 /**
@@ -23,11 +23,15 @@ abstract class Model
         static $db = null;
 
         if ($db === null) {
-            $dsn = 'mysql:host=' . Config::DB_HOST . ';dbname=' . Config::DB_NAME . ';charset=utf8';
-            $db = new PDO($dsn, Config::DB_USER, Config::DB_PASSWORD);
+            $db = new mysqli(Config::DB_HOST,Config::DB_USER,Config::DB_PASSWORD,Config::DB_NAME);
 
-            // Throw an Exception when an error occurs
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			// Check connection
+			if ($db -> connect_errno) {
+			  $message = "Non rieco a connettermi: " . $mysqli -> connect_error;
+			  $file = "Model.php";
+			  $line = "29";
+			  errorHandler($level, $message, $file, $line);
+			}
         }
 
         return $db;

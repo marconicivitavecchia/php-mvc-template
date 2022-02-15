@@ -41,8 +41,8 @@ class Home extends \Core\Controller
 
     public function usersWithIdAction() {
         $id = $this->route_params["id"];
-        $users = User::getUser($id);
-        View::renderTemplate('Home/users.html',['users' => $users]);
+        $user = User::getUser($id);
+        View::renderTemplate('Home/user.html',['user' => $user]);
     }
     public function usersWithIdJsonAction() {
         $id = $this->route_params["id"];

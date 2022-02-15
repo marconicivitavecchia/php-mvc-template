@@ -33,6 +33,7 @@ class User extends \Core\Model
                 array_push($result,$obj);
             }
         }
+        static::closeDB();
         return $result;
     }
 
@@ -40,16 +41,16 @@ class User extends \Core\Model
     {
         $db = static::getDB();
         $stmt = $db->query('SELECT user_id, name FROM users WHERE user_id='.$id);
-        $result = array();
+        $result = null;
         if ($stmt->num_rows > 0) {
             // output data of each row
             $row = $stmt->fetch_assoc();
-            $obj = [
+            $result = [
                 "user_id" => $row["user_id"],
                 "name" => $row["name"],
             ];
-            array_push($result,$obj);
         }
+        static::closeDB();
         return $result;
     }
 }

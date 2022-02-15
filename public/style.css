@@ -13,7 +13,7 @@
     }
 }
 
-#cool {
+.cool {
     font-weight: bold;
     animation-name: cool;
     animation-duration: 5s;
